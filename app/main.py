@@ -6,6 +6,10 @@ app = FastAPI(title="FastAPI Fundamentals")
 def root():
     return {"message": "FastAPI Fundamentals running"}
 
-@app.get("/")
+@app.get("/hello")
 def say_hello():
     return {"message": "Hello FastAPI"}
+
+@app.post("/items")
+def create_item(item: dict):
+    return {"item_created": item}

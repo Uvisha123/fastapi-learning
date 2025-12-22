@@ -13,3 +13,8 @@ def say_hello():
 @app.post("/items")
 def create_item(item: dict):
     return {"item_created": item}
+
+@app.put("/items/1")
+def update_item():
+    return {"status": "updated"}
+

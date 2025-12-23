@@ -43,5 +43,12 @@ def get_items(limit: int = 10):
         "items": []
     }
 
+@app.get("/items")
+def get_items(skip: int = 0, limit: int = 10):
+    return {
+        "skip": skip,
+        "limit": limit,
+        "items": []
+    }
 
 

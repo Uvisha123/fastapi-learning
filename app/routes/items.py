@@ -1,6 +1,6 @@
 from fastapi import APIRouter,Depends
 from app.schemas.item import ItemCreate,ItemOut
-from app.core.deps import get_request_source,get_db
+from app.core.deps import get_request_source,get_db,get_current_user
 
 router = APIRouter()
 
@@ -53,3 +53,10 @@ def db_test(db = Depends(get_db)):
     return {
         "db_connected": db.connected
     }
+
+@router.get("/items2/protected")
+def protected_items(current_user = Depends(get_current_user)):
+    return {
+        "message": "This is a protected route",
+        "user": current_user
+    }    

@@ -26,8 +26,6 @@ def create_item(item: ItemCreate):
     fake_db.append(new_item)
     return new_item    
 
-
-
 @router.put("/items/{item_id}")
 def update_item(item_id: int, item: ItemCreate):
     return {

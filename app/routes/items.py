@@ -1,5 +1,6 @@
-from fastapi import APIRouter
+from fastapi import APIRouter,Depends
 from app.schemas.item import ItemCreate,ItemOut
+from app.core.deps import get_request_source
 
 router = APIRouter()
 
@@ -19,6 +20,13 @@ def get_items(skip: int = 0, limit: int = 10):
         "limit": limit,
         "items": []
     }
+    
+
+@router.get("/item/source")
+def get_items_source(source: str = Depends(get_request_source)):
+    return {
+        "source": source
+    }    
 
 @router.post("/items", response_model=ItemOut)
 def create_item(item: ItemCreate):

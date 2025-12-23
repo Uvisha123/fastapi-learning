@@ -1,5 +1,5 @@
 from fastapi import APIRouter,Depends
-from app.core.deps import get_app_name
+from app.core.deps import get_app_name,get_request_source
 
 router = APIRouter()
 
@@ -12,8 +12,10 @@ def say_hello():
     return {"message": "Hello FastAPI"}
 
 @router.get("/health1")
-def health_check(app_name: str = Depends(get_app_name)):
+def health_check(app_name: str = Depends(get_app_name),source:str=Depends(get_request_source)):
     return {
         "status": "ok",
-        "app": app_name
+        "app": app_name,
+        "source":source
+        
     }

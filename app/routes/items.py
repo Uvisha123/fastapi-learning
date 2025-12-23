@@ -1,4 +1,5 @@
 from fastapi import APIRouter
+from app.schemas.item import ItemCreate
 
 router = APIRouter()
 
@@ -16,3 +17,7 @@ def get_items(skip: int = 0, limit: int = 10):
         "limit": limit,
         "items": []
     }
+
+@router.post("/items")
+def create_item(item: ItemCreate):
+    return {"item_created": item}

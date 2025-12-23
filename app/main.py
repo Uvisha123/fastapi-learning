@@ -51,4 +51,11 @@ def get_items(skip: int = 0, limit: int = 10):
         "items": []
     }
 
+@app.get("/users")
+def get_users(active: bool = True):
+    return {
+        "active": active,
+        "users": []
+    }
+
 

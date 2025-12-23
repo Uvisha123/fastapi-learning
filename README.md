@@ -1,5 +1,6 @@
 (Structure evolves as the project grows.)
 
+---
 
 ## 🛠 Tech Stack
 
@@ -12,6 +13,7 @@
 - **DevOps:** Docker
 - **Version Control:** Git & GitHub
 
+---
 
 ## 🧩 How I Work
 
@@ -22,6 +24,7 @@
 
 This repo reflects **discipline, consistency, and growth**.
 
+---
 
 ## 🚧 Status
 
@@ -29,7 +32,7 @@ This repo reflects **discipline, consistency, and growth**.
 
 This repository is actively updated as I learn and improve.
 
-
+---
 
 ## 📌 Final Note
 
@@ -37,6 +40,7 @@ This repository is actively updated as I learn and improve.
 
 This repository is part of my long-term journey in backend engineering and AI systems.
 
+---
 
 👤 **Author:** Uvisha Fernando  
 🔗 GitHub: https://github.com/Uvisha123

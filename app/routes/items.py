@@ -1,25 +1,27 @@
-from fastapi import APIRouter,Depends
+from fastapi import APIRouter,Depends,HTTPException
 from app.schemas.item import ItemCreate,ItemOut
 from app.core.deps import get_request_source,get_db,get_current_user
 import asyncio
+
 router = APIRouter()
 
 fake_db = []
 
-@router.get("/items/{item_id}")
+@router.get("/item/{item_id}")
 def get_item(item_id: int):
     return {
         "item_id": item_id,
         "message": "Item fetched successfully"
     }
 
-@router.get("/items")
-def get_items(skip: int = 0, limit: int = 10):
-    return {
-        "skip": skip,
-        "limit": limit,
-        "items": []
-    }
+@router.get("/items/{item_id}", response_model=ItemOut)
+async def get_item(item_id: int):
+    await asyncio.sleep(0.05)
+    for i in fake_db:
+        if i["id"] == item_id:
+            return i
+    raise HTTPException(status_code=404, detail=f"Item with id {item_id} not found")
+
     
 
 @router.get("/item/source")
